@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BREW & BLOOM</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f4eee5;
+            color: #292522;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        /* Header */
+        header {
+            background: #fffdf9;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: bold;
+            color: #5b3b2d;
+        }
+
+        .navbar {
+            background: #fffdf9;
+        }
+
+        .navbar-toggler {
+            border: none;
+            font-size: 25px;
+            color: #5b3b2d;
+            padding: 0;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        .navbar-nav .nav-link {
+            color: #5b3b2d;
+            font-weight: bold;
+            padding: 12px;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #a98662;
+        }
+
+        /* Home Section */
+        .hero {
+            padding: 65px;
+        }
+
+        .small-text {
+            color: #a98662;
+            font-size: 10px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 500;
+            line-height: 1.2;
+            margin-bottom: 18px;
+        }
+
+        .description {
+            color: #887c72;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .buttons {
+            margin-top: 25px;
+        }
+
+        .buttons .btn {
+            padding: 20px;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+
+        .explore {
+            background: #5b3b2d;
+            color: white;
+            border: 1px solid #5b3b2d;
+        }
+
+        .explore:hover {
+            background: #432a20;
+            color: white;
+        }
+
+        .book {
+            background: white;
+            color: #5b3b2d;
+            border: 1px solid #9d806b;
+        }
+
+        .book:hover {
+            background: #f4eee5;
+            color: #5b3b2d;
+        }
+
+        /* Coffee Moments */
+        .moments {
+            background: #b99a7d;
+            color: white;
+            height: 220px;
+            margin-top: 15px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Playfair Display', serif;
+            font-weight: bold;
+        }
+
+        /* About Section */
+        .story {
+            background: #fffdf9;
+            padding: 50px 6%;
+        }
+
+        .story img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 7px;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        /* Menu Section */
+        .menu-section {
+            padding: 55px;
+        }
+
+        .menu-card {
+            background: #fffdf9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+            height: 100%;
+        }
+
+        .menu-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 500;
+        }
+
+        .menu-card p {
+            color: #887c72;
+            font-size: 12px;
+            margin: 8px;
+        }
+
+        .price {
+            color: #5b3b2d;
+            font-weight: bold;
+        }
+
+
+        /* Checkout Section */
+        .checkout-section {
+            background: #fffdf9;
+            padding: 55px 6%;
+        }
+
+        .checkout-card {
+            background: #f4eee5;
+            border: 1px solid #e2d5c8;
+            border-radius: 8px;
+            padding: 25px;
+            height: 100%;
+        }
+
+        .checkout-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 23px;
+            color: #5b3b2d;
+            margin-bottom: 20px;
+        }
+
+        .checkout-section .form-label {
+            color: #5b3b2d;
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        .checkout-section .form-control,
+        .checkout-section .form-select {
+            border: 1px solid #cbb8a6;
+            border-radius: 4px;
+            padding: 10px;
+        }
+
+        .checkout-section .form-control:focus,
+        .checkout-section .form-select:focus {
+            border-color: #a98662;
+            box-shadow: 0 0 0 0.2rem rgba(169, 134, 98, 0.15);
+        }
+
+        .checkout-item {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 12px 0;
+            border-bottom: 1px solid #dfd2c5;
+            color: #5b3b2d;
+        }
+
+        .checkout-total {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            font-size: 18px;
+            color: #5b3b2d;
+            padding-top: 18px;
+        }
+
+        .place-order {
+            background: #5b3b2d;
+            color: white;
+            border: 1px solid #5b3b2d;
+            width: 100%;
+            padding: 12px;
+            font-weight: bold;
+        }
+
+        .place-order:hover {
+            background: #432a20;
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: #292522;
+            color: white;
+            padding: 35px;
+        }
+
+        footer h2 {
+            font-size: 25px;
+        }
+
+        footer p {
+            color: #c9bdb1;
+            font-size: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header / Navbar -->
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-md px-3 py-3">
+
+            <div class="container-fluid">
+
+                <a class="navbar-brand logo" href="#home">
+                    BREW & BLOOM
+                </a>
+
+                <!-- Bootstrap Menu Button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navigation"
+                    aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+
+                </button>
+                <div class="collapse navbar-collapse" id="navigation">
+
+                    <ul class="navbar-nav ms-auto text-center">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#home">HOME</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">ABOUT</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#menu">MENU</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#checkout">CHECKOUT</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">CONTACT</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section class="hero" id="home">
+
+        <p class="small-text">
+            A LITTLE PAUSE. A LOT OF FLAVOUR.
+        </p>
+
+        <h1>
+            Where Every Sip<br>
+            Tells a Story.
+        </h1>
+
+        <p class="description">
+            Discover handcrafted coffee, delicious treats
+            and unforgettable moments.
+        </p>
+
+        <!-- Buttons -->
+        <div class="buttons d-flex flex-wrap gap-3">
+
+            <a href="#menu" class="btn explore">
+                Explore Menu
+            </a>
+
+            <a href="#contact" class="btn book">
+                Book a Table
+            </a>
+        </div>
+        <!-- Coffee Moments -->
+        <div class="moments">
+            COFFEE MOMENTS
+        </div>
+    </section>
+    <!-- About Section -->
+    <section class="story" id="about">
+
+        <div class="container-fluid">
+
+            <div class="row align-items-center">
+
+                <div class="col-12 col-lg-6 mb-4 mb-lg-0">
+
+                    <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1200&q=80"
+                        alt="Beautiful coffee shop interior" class="img-fluid">
+
+                </div>
+                <div class="col-12 col-lg-6">
+                    <p class="small-text">
+                        OUR STORY
+                    </p>
+                    <h2>
+                        More Than Just Coffee.
+                    </h2>
+                    <p class="description">
+                        Thoughtfully crafted coffee, freshly made desserts
+                        and a welcoming place to enjoy beautiful moments.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Menu Section -->
+    <section class="menu-section" id="menu">
+        <div class="container-fluid">
+
+            <p class="small-text">
+                A TASTE OF OUR WORLD
+            </p>
+
+            <h2>
+                Made to Be Savoured.
+            </h2>
+
+            <div class="row">
+
+                <!-- Cappuccino -->
+                <div class="col-12 col-md-6 col-lg-4">
+
+                    <div class="menu-card">
+
+                        <h3>Cappuccino</h3>
+
+                        <p>
+                            Espresso, steamed milk and a delicate foam finish.
+                        </p>
+
+                        <div class="price">
+                            ₹180
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Cafe Latte -->
+                <div class="col-12 col-md-6 col-lg-4">
+
+                    <div class="menu-card">
+
+                        <h3>Café Latte</h3>
+
+                        <p>
+                            Smooth espresso blended with cow milk.
+                        </p>
+
+                        <div class="price">
+                            ₹190
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Mocha -->
+                <div class="col-12 col-md-6 col-lg-4">
+
+                    <div class="menu-card">
+
+                        <h3>Mocha</h3>
+
+                        <p>
+                            Rich chocolate meets our signature espresso.
+                        </p>
+
+                        <div class="price">
+                            ₹210
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Checkout Page / Section -->
+    <section class="checkout-section" id="checkout">
+        <div class="container-fluid">
+            <p class="small-text">COMPLETE YOUR ORDER</p>
+            <h2>Checkout</h2>
+            <p class="description mb-4">A few details and your coffee will be ready to go.</p>
+
+            <div class="row g-4">
+                <div class="col-12 col-lg-7">
+                    <div class="checkout-card">
+                        <h3>Customer Details</h3>
+                        <form action="#" method="post">
+                            <div class="row g-3">
+                                <div class="col-12 col-md-6">
+                                    <label for="customerName" class="form-label">Full Name</label>
+                                    <input type="text" class="form-control" id="customerName"
+                                        placeholder="Enter your name" required>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label for="customerPhone" class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" id="customerPhone"
+                                        placeholder="Enter phone number" required>
+                                </div>
+                                <div class="col-12">
+                                    <label for="customerEmail" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" id="customerEmail"
+                                        placeholder="Enter email address">
+                                </div>
+                                <div class="col-12">
+                                    <label for="deliveryAddress" class="form-label">Delivery Address</label>
+                                    <textarea class="form-control" id="deliveryAddress" rows="3"
+                                        placeholder="House number, street, area" required></textarea>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label for="city" class="form-label">City</label>
+                                    <input type="text" class="form-control" id="city" placeholder="City" required>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label for="pincode" class="form-label">PIN Code</label>
+                                    <input type="text" class="form-control" id="pincode" placeholder="PIN code"
+                                        required>
+                                </div>
+                                <div class="col-12">
+                                    <label for="paymentMethod" class="form-label">Payment Method</label>
+                                    <select class="form-select" id="paymentMethod" required>
+                                        <option value="" selected disabled>Select payment method</option>
+                                        <option>Cash on Delivery</option>
+                                        <option>UPI</option>
+                                        <option>Card Payment</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label for="orderNotes" class="form-label">Order Notes (Optional)</label>
+                                    <textarea class="form-control" id="orderNotes" rows="2"
+                                        placeholder="Any special instructions?"></textarea>
+                                </div>
+                                <div class="col-12 mt-3">
+                                    <button type="submit" class="btn place-order">PLACE ORDER</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-5">
+                    <div class="checkout-card">
+                        <h3>Order Summary</h3>
+                        <div class="checkout-item">
+                            <span>Cappuccino × 1</span>
+                            <span>₹180</span>
+                        </div>
+                        <div class="checkout-item">
+                            <span>Café Latte × 1</span>
+                            <span>₹190</span>
+                        </div>
+                        <div class="checkout-item">
+                            <span>Mocha × 1</span>
+                            <span>₹210</span>
+                        </div>
+                        <div class="checkout-item">
+                            <span>Delivery</span>
+                            <span>₹40</span>
+                        </div>
+                        <div class="checkout-total">
+                            <span>Total</span>
+                            <span>₹620</span>
+                        </div>
+                        <p class="description mt-3">Your order summary is shown for demonstration. The checkout form is
+                            not connected to an order-processing system.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+
+        <div class="container-fluid">
+
+            <h2>
+                BREW & BLOOM
+            </h2>
+
+            <p>
+                Coffee • Desserts • Moments
+            </p>
+
+            <p>
+                © 2026 BREW & BLOOM
+            </p>
+            <P>
+                Contact Details:
+                9865xxxxxx
+            </P>
+            <p>
+                Email us at: brewandbloom@gmail.com
+            </p>
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>
